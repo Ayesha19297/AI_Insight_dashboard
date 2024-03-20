@@ -1,7 +1,7 @@
-import { platform } from "os";
 import React from "react";
 import { useSelector } from "react-redux";
-import { PieChart, Pie, Tooltip, Legend } from "recharts";
+import { PieChart, Pie, Tooltip, Legend, Cell } from "recharts";
+import "./main.css";
 
 const PieChartComponent: React.FC = () => {
   const usageStatistics = useSelector(
@@ -23,25 +23,40 @@ const PieChartComponent: React.FC = () => {
       value: count,
     })
   );
+  const COLORS = ["#FFBB28", "#00C49F", "#AF19FF", "#FF8042", "#0088FE"];
   return (
-    <>
+    <div className="chart-container">
       <div className="chart">
-        <h2>usage statistics by platform</h2>
+        <h2>Insights based on usage statistics by platform</h2>
         <PieChart width={500} height={300}>
-          <Pie dataKey="value" data={byPlatform} fill="#5465ff" label />
+          <Pie dataKey="value" data={byPlatform} label>
+            {byPlatform.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
           <Tooltip />
           <Legend />
         </PieChart>
       </div>
       <div className="chart">
-        <h2>usage statistics by country</h2>
+        <h2>Insights based on usage statistics by country</h2>
         <PieChart width={500} height={300}>
-          <Pie dataKey="value" data={byCountry} fill="#5465ff" label />
+          <Pie dataKey="value" data={byCountry} fill="#ff4d6d" label>
+            {byCountry.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
           <Tooltip />
           <Legend />
         </PieChart>
       </div>
-    </>
+    </div>
   );
 };
 

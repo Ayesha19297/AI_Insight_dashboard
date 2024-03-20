@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import "./main.css";
 
 const BarChartComponent: React.FC = () => {
   const categoryDistribution = useSelector(
@@ -35,30 +36,30 @@ const BarChartComponent: React.FC = () => {
   }));
 
   return (
-    <>
+    <div className="chart-container">
       <div className="chart">
-        <h2>Category Distribution</h2>
-        <BarChart width={600} height={400} data={transformedData1}>
+        <h2>Insights based on category distribution</h2>
+        <BarChart width={500} height={400} data={transformedData1}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="category" />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="value" fill="#5465ff" />
+          <Bar dataKey="value" fill="#f4d35e" />
         </BarChart>
       </div>
       <div className="chart">
-        <h2>User Satisfaction</h2>
-        <BarChart width={600} height={400} data={transformedData2}>
+        <h2>Insights based on user satisfaction</h2>
+        <BarChart width={500} height={400} data={transformedData2}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="rating" />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="count" fill="#5465ff" />
+          <Bar dataKey="count" fill="#ff4d6d" />
         </BarChart>
       </div>
-    </>
+    </div>
   );
 };
 

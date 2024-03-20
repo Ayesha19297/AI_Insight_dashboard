@@ -6,24 +6,27 @@ import BarChartComponent from "./Components/BarChart";
 import LineChartComponent from "./Components/LineChart";
 import PieChartComponent from "./Components/PieChart";
 import "./App.css";
+import Insight from "./Components/Insights";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
   const aiData = useSelector((state: RootState) => state.aiData);
 
   useEffect(() => {
-    dispatch(fetchData() as any); 
+    dispatch(fetchData() as any);
   }, [dispatch]);
 
   return (
     <div className="app-container">
-      <h1>AI Insights Dashboard</h1>
       <div className="charts-container">
         {aiData ? (
           <>
+            <h1 className="title">AI INSIGHTS DASHBOARD</h1>
+
             <BarChartComponent />
             <LineChartComponent />
             <PieChartComponent />
+            <Insight />
           </>
         ) : (
           <div>Loading...</div>

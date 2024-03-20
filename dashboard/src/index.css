@@ -37,15 +37,17 @@ code {
   4. Improve text rendering
 */
 body {
+  margin: 20px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background: linear-gradient(45deg, #e4c1f9, rgba(255, 255, 255, 0)),
-    linear-gradient(#fbba72, rgba(255, 255, 255, 0)),
-    linear-gradient(-45deg, #ff7096, rgba(255, 255, 255, 0));
+  background: linear-gradient(45deg, #f7aef8, rgba(255, 255, 255, 0)),
+    linear-gradient(#00b4d8, rgba(255, 255, 255, 0)),
+    linear-gradient(-45deg, #ffdde2, rgba(255, 255, 255, 0));
   background-blend-mode: screen;
   background-attachment: fixed;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  color: brown;
+  font-family: "Times New Roman", Times, serif;
+  color: #03045e;
+  font-size: 25px;
 }
 /*
   5. Improve media defaults
